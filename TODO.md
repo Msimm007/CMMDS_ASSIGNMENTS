@@ -1,6 +1,6 @@
 # HW 1
 
-Bellow are the tasks in the TODO section. As we take something on, move it to the In Progress section and write your name on it. When that is done, move it to the Done section.
+Below are the tasks in the TODO section. As we take something on, move it to the In Progress section and write your name on it. When that is done, move it to the Done section.
 
 ### TODO 
 
