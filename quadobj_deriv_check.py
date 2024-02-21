@@ -34,6 +34,7 @@ Q = np.random.rand(n, n)
 x = np.random.rand(n)
 b = np.random.rand(n)
 c = np.random.uniform(-10.0, 10.0)
+
 # initialize class
 opt = Optimize()
 

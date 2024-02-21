@@ -6,11 +6,6 @@ Bellow are the tasks in the TODO section. As we take something on, move it to th
 
 Question 1:
 
-- [ ] 1a derive gradient and Hessians
-- [ ] Implement objective functoin
-- [ ] check derivative is correct.
-- [ ] quadobj_check.py script
-
 - [ ] check f is convex for matrix Q.
 - [ ] check f is convex for Q s.p.d.
 - [ ] quadobj_cvx_check.py script
@@ -25,3 +20,8 @@ Question 2:
 ### In Progress
 
 #### Done 
+
+- [x] 1a derive gradient and Hessians
+- [x] Implement objective functoin
+- [x] check derivative is correct.
+- [x] quadobj_check.py script
