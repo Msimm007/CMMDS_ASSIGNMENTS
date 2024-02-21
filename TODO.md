@@ -4,12 +4,6 @@ Bellow are the tasks in the TODO section. As we take something on, move it to th
 
 ### TODO 
 
-Question 1:
-
-- [ ] check f is convex for matrix Q.
-- [ ] check f is convex for Q s.p.d.
-- [ ] quadobj_cvx_check.py script
-
 Question 2: 
 
 - [ ] Implement code for the objective function.
@@ -18,6 +12,17 @@ Question 2:
 - [ ] nlrlsq_deriv_check.py script
 
 ### In Progress
+
+(Marco)
+Question 1:
+
+- [ ] check f is convex for matrix Q.
+- [ ] check f is convex for Q s.p.d.
+- [x] quadobj_cvx_check.py script
+
+Comments: I think this is mostly completed but I think I have bugs in the visuals because I'm calling Mang's stuff incorrectly, will fix the code soon.
+
+(Mark)
 
 #### Done 
 
