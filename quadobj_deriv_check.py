@@ -26,7 +26,7 @@ def eval_objfun( Q, x, b, c, flag="d2f" ):
     # evaluate hessian
     d2f = 0.5*(Q + QT)
 
-    return f,df,d2f;
+    return f,df,d2f
 
 
 n = 512 # problem dimension
