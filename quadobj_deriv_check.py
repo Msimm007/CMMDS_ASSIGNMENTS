@@ -7,17 +7,17 @@ from LineSearchOpt import *
 # evaluate objective function
 def eval_objfun( Q, x, b, c, flag="d2f" ):
 
-    # evaluate objective function
     Qx = np.matmul(Q, x)
-
+    
+    # evaluate objective function
     f = 0.5*np.inner(x,Qx) + np.inner(b,x) + c
-
 
     if flag == "f":
         return f
 
-    # evaluate gradient
     QT = Q.transpose()
+    
+    # evaluate gradient
     df = 0.5*np.inner(Q + QT,x) + b
 
     if flag == "df":
@@ -29,7 +29,7 @@ def eval_objfun( Q, x, b, c, flag="d2f" ):
     return f,df,d2f
 
 
-n = 512 # problem dimension
+n = 32 # problem dimension
 Q = np.random.rand(n, n)
 x = np.random.rand(n)
 b = np.random.rand(n)

@@ -6,28 +6,32 @@ sys.path.append("../")
 from LineSearchOpt import *
 
 
+
 # evaluate objective function
-def eval_objfun( Q, x, b, c):
-    Qx = np.matmul(Q, x)
-    
+def eval_objfun( Q, x, b, c, flag ):
+    # compute residual
+    Qx = np.matmul(Q,x)
+
     # evaluate objective function
-    f = 0.5*np.inner(x,Qx) + np.inner(b,x) + c
-
-    return f;
+    f = 0.5*np.inner( x, Qx ) + np.inner(b,x) + c
     
+    if flag == "f":
     
-n = 512 # problem dimension
+        return f
 
-Q = np.random.rand(n, n)
-b = np.random.rand(n)
-c = 2
+
+n = 16; # problem dimension
+Q = np.random.rand( n, n )
+b = np.random.rand( n )
+c = np.random.rand()
 
 
 # initialize class
-opt = Optimize()
+opt = Optimize();
+
 
 # define function handle
-fctn = lambda x, flag: eval_objfun( Q, x, b, c)
+fctn = lambda x, flag: eval_objfun( Q, x, b, c, flag )
 opt.set_objfctn( fctn )
 
 bound = np.zeros(2)
