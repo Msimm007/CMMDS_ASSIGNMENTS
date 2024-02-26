@@ -6,10 +6,9 @@ Below are the tasks in the TODO section. As we take something on, move it to the
 
 Question 2: 
 
-- [ ] Implement code for the objective function.
-- [ ] Implement Gradient and Hessian
+
+- [ ] Implement Hessian
 - [ ] Check implementations
-- [ ] nlrlsq_deriv_check.py script
 - [ ] derive Hessian by hand (tricky)
 
 ### In Progress
@@ -32,3 +31,6 @@ Comments: I think this is mostly completed but I think I have bugs in the visual
 - [x] check derivative is correct.
 - [x] quadobj_check.py script
 - [x] 2 derived gradient by hand
+- [x] nlrlsq_deriv_check.py script
+- [x] Implement code for the objective function.
+- [x] Implement Gradient
