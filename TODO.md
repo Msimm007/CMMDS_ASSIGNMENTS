@@ -1,6 +1,6 @@
 # HW 1
 
-Bellow are the tasks in the TODO section. As we take something on, move it to the In Progress section and write your name on it. When that is done, move it to the Done section.
+Below are the tasks in the TODO section. As we take something on, move it to the In Progress section and write your name on it. When that is done, move it to the Done section.
 
 ### TODO 
 
@@ -10,6 +10,7 @@ Question 2:
 - [ ] Implement Gradient and Hessian
 - [ ] Check implementations
 - [ ] nlrlsq_deriv_check.py script
+- [ ] derive Hessian by hand (tricky)
 
 ### In Progress
 
@@ -27,6 +28,7 @@ Comments: I think this is mostly completed but I think I have bugs in the visual
 #### Done 
 
 - [x] 1a derive gradient and Hessians
-- [x] Implement objective functoin
+- [x] Implement objective function
 - [x] check derivative is correct.
 - [x] quadobj_check.py script
+- [x] 2 derived gradient by hand
