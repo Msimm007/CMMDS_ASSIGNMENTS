@@ -8,12 +8,12 @@ from LineSearchOpt import *
 def eval_objfun( A, x, b, beta, L, flag="d2f" ):
 
     Ax = np.matmul(A,x)
-    r = np.sin(Ax) - b
+    y = np.sin(Ax) - b
     
     Lx = np.matmul(L,x)
     
     # evaluate objective function
-    f = 0.5*np.inner(r,r) + beta*0.5*np.inner(Lx,Lx)
+    f = 0.5*np.inner(y,y) + beta*0.5*np.inner(Lx,Lx)
 
     if flag == "f":
         return f
@@ -26,19 +26,21 @@ def eval_objfun( A, x, b, beta, L, flag="d2f" ):
     B = np.matmul(AT,np.diag(cosAx))
     
     
-    df = np.matmul(B,r) + beta*np.matmul(LTL,x)
+    df = np.matmul(B,y) + beta*np.matmul(LTL,x)
     
     if flag == "df":
         return f,df
     
-    
-    # evaluate hessian
-    d2f = AT
+# =============================================================================
+#     
+#     # evaluate hessian
+#     d2f = AT
+# 
+#     return f,df,d2f;
+# 
+# =============================================================================
 
-    return f,df,d2f;
-
-
-n = 512; # problem dimension
+n = 512; # problem dimension:
 A = np.random.rand( n, n )
 x = np.random.rand( n )
 L = np.identity(n)
