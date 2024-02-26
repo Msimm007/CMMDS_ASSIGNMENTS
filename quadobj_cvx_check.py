@@ -4,34 +4,78 @@ import sys
 sys.path.append("../")
 
 from LineSearchOpt import *
+from data.Data import *
 
+"""The following is from quadobj_deriv_check. We could just import
+    this but I'm following Mang's convention in his examples.
+"""
 
+def eval_objfun( Q, x, b, c, flag="d2f" ):
 
 # evaluate objective function
-def eval_objfun( Q, x, b, c, flag ):
-    # compute residual
-    Qx = np.matmul(Q,x)
+    Qx = np.matmul(Q, x)
 
-    # evaluate objective function
-    f = 0.5*np.inner( x, Qx ) + np.inner(b,x) + c
-    
+    f = 0.5*np.inner(x,Qx) + np.inner(b,x) + c
+
+
     if flag == "f":
-    
         return f
 
+    # evaluate gradient
+    QT = Q.transpose()
+    df = 0.5*np.inner(Q + QT,x) + b
 
-n = 16; # problem dimension
-Q = np.random.rand( n, n )
-b = np.random.rand( n )
-c = np.random.rand()
+    if flag == "df":
+        return f,df
 
+    # evaluate hessian
+    d2f = 0.5*(Q + QT)
+
+    return f,df,d2f;
+
+
+n = 512 # problem dimension
+Q_random = np.random.rand(n, n)
+x = np.random.rand(n)
+b_term = np.random.rand(n)
+c = np.random.uniform(-10.0, 10.0)
 
 # initialize class
-opt = Optimize();
-
+opt = Optimize()
 
 # define function handle
-fctn = lambda x, flag: eval_objfun( Q, x, b, c, flag )
+fctn = lambda x, flag: eval_objfun( Q_random, x, b_term, c, flag )
+
+# set objective function
+opt.set_objfctn(fctn)
+
+# perform derivative check
+opt.deriv_check(x)
+
+
+"""
+Convexity checks for random Q.
+"""
+
+# define function handle
+fctn = lambda x, flag: eval_objfun( Q_random, x, b_term, 0.03, flag )
+opt.set_objfctn( fctn )
+
+bound = np.zeros(2)
+t = np.linspace( bound[0], bound[1], m )
+plt.plot( t, g )
+plt.show()
+plt.savefig("cvx_check_random_Q")
+
+""" 
+Convexity Check for SPD Q
+"""
+
+data = Data()
+Q_spd = data.get_spd_mat(n)
+
+# define function handle
+fctn = lambda x, flag: eval_objfun( Q_spd, x, b_term, 0.03, flag )
 opt.set_objfctn( fctn )
 
 bound = np.zeros(2)
@@ -58,15 +102,4 @@ for i in range(ntrials):
 t = np.linspace( bound[0], bound[1], m )
 plt.plot( t, g )
 plt.show()
-
-
-
-
-###########################################################
-# This code is part of the python toolbox termed
-#
-# CHAMELEON --- Computational and mAthematical MEthods in
-# machine LEarning, Optimization and iNference
-#
-# For details see https://github.com/andreasmang/chameleon
-###########################################################
+plt.savefig("cvx_check_spd_Q")

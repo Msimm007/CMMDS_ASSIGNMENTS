@@ -30,21 +30,21 @@ def eval_objfun( A, x, b, beta, L, flag="d2f" ):
     
     if flag == "df":
         return f,df
+    bh = np.matmul( np.diag(np.sin(Ax)),b) # maybe wrong dimension
     
-# =============================================================================
-#     
-#     # evaluate hessian
-#     d2f = AT
-# 
-#     return f,df,d2f;
-# 
-# =============================================================================
+    print(np.diag(np.sin(Ax)))
+    print(b)
+    # evaluate hessian
+    d2f = np.matmul(np.matmul(AT,A), np.diag(2*cosAx+  bh  )) + beta*LTL
 
-n = 512; # problem dimension:
+    return f,df,d2f;
+
+
+n = 512; # problem dimension
 A = np.random.rand( n, n )
 x = np.random.rand( n )
 L = np.identity(n)
-b = np.random.rand()
+b = np.random.rand(n)
 r = np.sin(np.matmul(A,x)) - b
 beta = 0.2
 
