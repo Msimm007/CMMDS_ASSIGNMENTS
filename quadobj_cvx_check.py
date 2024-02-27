@@ -40,43 +40,9 @@ x = np.random.rand(n)
 b_term = np.random.rand(n)
 c = np.random.uniform(-10.0, 10.0)
 
-# initialize class
-opt = Optimize()
-
-# define function handle
-fctn = lambda x, flag: eval_objfun( Q_random, x, b_term, c, flag )
-
-# set objective function
-opt.set_objfctn(fctn)
-
-# perform derivative check
-opt.deriv_check(x)
-
-
-"""
-Convexity checks for random Q.
-"""
-
-# define function handle
-fctn = lambda x, flag: eval_objfun( Q_random, x, b_term, 0.03, flag )
-opt.set_objfctn( fctn )
-
-bound = np.zeros(2)
-t = np.linspace( bound[0], bound[1], m )
-plt.plot( t, g )
-plt.show()
-plt.savefig("cvx_check_random_Q")
-
 """ 
-Convexity Check for SPD Q
+Experiment setup
 """
-
-data = Data()
-Q_spd = data.get_spd_mat(n)
-
-# define function handle
-fctn = lambda x, flag: eval_objfun( Q_spd, x, b_term, 0.03, flag )
-opt.set_objfctn( fctn )
 
 bound = np.zeros(2)
 b = 5
@@ -88,18 +54,59 @@ m = 100 # number of samples
 # number of random perturbations
 ntrials = 10
 
-g = np.zeros([m,ntrials])
+"""
+Convexity checks for random Q.
+"""
+
+# initialize class
+opt1 = Optimize()
+
+# define function handle
+fctn1 = lambda x, flag: eval_objfun( Q_random, x, b_term, c, flag )
+
+# set objective function
+opt1.set_objfctn(fctn1)
+g1 = np.zeros([m,ntrials])
 
 # draw random perturbations
 for i in range(ntrials):
     # draw a random point
     x = np.random.rand( n )
     # compute 1d function along line: g(t) = f( x + t v )
-    g[:,i] = opt.cvx_check( x, bound, m )
+    g1[:,i] = opt1.cvx_check( x, bound, m )
+    
+t = np.linspace( bound[0], bound[1], m)
+
+plt.plot( t, g1 )
+plt.show()
+plt.savefig("cvx_check_random_Q")
+
+
+""" 
+Convexity Check for SPD Q
+"""
+
+data = Data()
+Q_spd = data.get_spd_mat(n)
+
+opt2 = Optimize()
+# define function handle
+fctn2 = lambda x, flag: eval_objfun( Q_spd, x, b_term, 0.03, flag )
+opt2.set_objfctn( fctn2 )
+
+g2 = np.zeros([m,ntrials])
+
+
+# draw random perturbations
+for i in range(ntrials):
+    # draw a random point
+    x = np.random.rand( n )
+    # compute 1d function along line: g(t) = f( x + t v )
+    g2[:,i] = opt2.cvx_check( x, bound, m )
 
 
 # plot
 t = np.linspace( bound[0], bound[1], m )
-plt.plot( t, g )
+plt.plot( t, g2 )
 plt.show()
 plt.savefig("cvx_check_spd_Q")
