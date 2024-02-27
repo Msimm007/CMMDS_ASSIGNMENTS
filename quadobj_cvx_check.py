@@ -40,36 +40,6 @@ x = np.random.rand(n)
 b_term = np.random.rand(n)
 c = np.random.uniform(-10.0, 10.0)
 
-<<<<<<< HEAD
-# initialize class
-opt = Optimize()
-
-# define function handle
-fctn = lambda x, flag: eval_objfun( Q_random, x, b_term, c, flag )
-
-# set objective function
-opt.set_objfctn(fctn)
-
-# perform derivative check
-opt.deriv_check(x)
-
-
-"""
-Convexity checks for random Q.
-"""
-
-# define function handle
-fctn = lambda x, flag: eval_objfun( Q_random, x, b_term, 0.03, flag )
-opt.set_objfctn( fctn )
-m = 100
-bound = np.zeros(2)
-t = np.linspace( bound[0], bound[1], m )
-plt.plot( t, g )
-plt.show()
-plt.savefig("cvx_check_random_Q")
-
-=======
->>>>>>> 02f1c5384d4e6ca13f5963e614c764a6ffaf991e
 """ 
 Experiment setup
 """
@@ -104,7 +74,7 @@ for i in range(ntrials):
     x = np.random.rand( n )
     # compute 1d function along line: g(t) = f( x + t v )
     g1[:,i] = opt1.cvx_check( x, bound, m )
-    
+
 t = np.linspace( bound[0], bound[1], m)
 
 plt.plot( t, g1 )
