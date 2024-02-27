@@ -32,8 +32,6 @@ def eval_objfun( A, x, b, beta, L, flag="d2f" ):
         return f,df
     bh = np.matmul( np.diag(np.sin(Ax)),b) # maybe wrong dimension
     
-    print(np.diag(np.sin(Ax)))
-    print(b)
     # evaluate hessian
     d2f = np.matmul(np.matmul(AT,np.diag(np.cos(2*Ax))),A)+ np.matmul(np.matmul(AT,np.diag(np.sin(Ax))),np.matmul(np.diag(b),A)) + beta*np.identity(n)
 
