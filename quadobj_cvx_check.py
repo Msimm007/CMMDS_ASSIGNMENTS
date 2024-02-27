@@ -60,7 +60,7 @@ Convexity checks for random Q.
 # define function handle
 fctn = lambda x, flag: eval_objfun( Q_random, x, b_term, 0.03, flag )
 opt.set_objfctn( fctn )
-
+m = 100
 bound = np.zeros(2)
 t = np.linspace( bound[0], bound[1], m )
 plt.plot( t, g )
