@@ -11,16 +11,27 @@ Question 2:
 - [ ] Check implementations
 - [ ] derive Hessian by hand (tricky)
 
+Question 3: 
+
+- Part (a)
+    - [ ] Derive Gradient
+    - [ ] Identity matrix for Hessian (derive later)
+    - [ ] Derivative check python script
+
+-  Part (b) Globalized gradient descent implementation
+    - [ ] Algorithm implementation
+    - [ ] 1 iteration
+    - [ ] 100 iterations
+
+- Part (c)
+    - [ ] Derive Hessian
+    - [ ] classify_mnist.py
+
+- Part (d) 
+    - [ ] Globalized Newton algorithm implementation
+    - [ ] 10 iterations, report accuracy
+    - [ ] classify_mnist.py flag addition.
 ### In Progress
-
-(Marco)
-Question 1:
-
-- [ ] check f is convex for matrix Q.
-- [ ] check f is convex for Q s.p.d.
-- [x] quadobj_cvx_check.py script
-
-Comments: I think this is mostly completed but I think I have bugs in the visuals because I'm calling Mang's stuff incorrectly, will fix the code soon.
 
 (Mark)
 
@@ -34,3 +45,11 @@ Comments: I think this is mostly completed but I think I have bugs in the visual
 - [x] nlrlsq_deriv_check.py script
 - [x] Implement code for the objective function.
 - [x] Implement Gradient
+
+
+(Marco)
+Question 1:
+
+- [x] check f is convex for matrix Q.
+- [x] check f is convex for Q s.p.d.
+- [x] quadobj_cvx_check.py script
