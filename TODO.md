@@ -7,9 +7,7 @@ Below are the tasks in the TODO section. As we take something on, move it to the
 Question 2: 
 
 
-- [ ] Implement Hessian
-- [ ] Check implementations
-- [ ] derive Hessian by hand (tricky)
+
 
 Question 3: 
 
@@ -36,16 +34,20 @@ Question 3:
 (Mark)
 
 #### Done 
-
+problem 1
 - [x] 1a derive gradient and Hessians
 - [x] Implement objective function
 - [x] check derivative is correct.
 - [x] quadobj_check.py script
-- [x] 2 derived gradient by hand
+
+problem 2
+- [x] derived gradient by hand
 - [x] nlrlsq_deriv_check.py script
 - [x] Implement code for the objective function.
+- [x] derive Hessian by hand
 - [x] Implement Gradient
-
+- [x]  Implement Hessian
+- [x] Check implementations
 
 (Marco)
 Question 1:
