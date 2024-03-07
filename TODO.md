@@ -12,8 +12,8 @@ Question 2:
 Question 3: 
 
 - Part (a)
-    - [ ] Derive Gradient
-    - [ ] Identity matrix for Hessian (derive later)
+    - [x] Derive Gradient
+    - [x] Identity matrix for Hessian (derive later)
     - [ ] Derivative check python script
 
 -  Part (b) Globalized gradient descent implementation
@@ -21,14 +21,6 @@ Question 3:
     - [ ] 1 iteration
     - [ ] 100 iterations
 
-- Part (c)
-    - [ ] Derive Hessian
-    - [ ] classify_mnist.py
-
-- Part (d) 
-    - [ ] Globalized Newton algorithm implementation
-    - [ ] 10 iterations, report accuracy
-    - [ ] classify_mnist.py flag addition.
 ### In Progress
 
 (Mark)
