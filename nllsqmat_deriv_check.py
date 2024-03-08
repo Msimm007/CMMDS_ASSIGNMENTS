@@ -40,8 +40,6 @@ def eval_objfun( Y, X, C, flag="df" ):
     if flag == "f":
         return f
     
-    A = np.ones(tanhYX.shape) - tanhYX**2
-
     df = np.matmul(Y.transpose(), np.multiply(dtanhYX,tanhYX - C))
     
     if flag == "df":
